@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body,
+        body * {
+            margin: 0;
+            padding: 0;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+        div {
+            display: inline-block;
+            margin: 20px;
+            padding: 5px 20px;
+            line-height: 20px;
+            font-size: 16px;
+            color: #333;
+            background-color: #FFF;
+            border: 1px solid #CCC;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="demo">Click me, I am the best button ever!</div>
+
+    <script>
+        var i = 0,
+            element = document.getElementById("demo"),
+            txt = element.innerHTML,
+            speed = 50;
+
+        // issimatuoti ploti ir ji uzdeti kaip "style"
+        var elemento_plotis = element.offsetWidth + 1;
+        element.style.width = elemento_plotis+'px';
+
+        // isvalyti esama teksta
+        element.innerHTML = '';
+        // paleisti funkcija, jog suanimuotu teksto atsiradima
+
+        function typeWriter() {
+            if (i < txt.length) {
+                console.log(txt.charAt(i));
+
+                element.innerHTML += txt.charAt(i);
+                i++;
+                setTimeout(typeWriter, speed);
+            }
+        }
+
+        // inicijuojame animacija
+        typeWriter();
+    </script>
+</body>
+</html>
